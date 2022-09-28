@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item text-white" >
+                <strong><span class="align-middle" id="userAuthority"></span></strong>
+                <span class="align-middle">with roles:</span>
+                <span class="align-middle" id="userRolesAuthority">Roles</span>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action="/logout">
+            <button type="submit" class="btn btn-dark text-secondary">Logout</button>
+        </form>
+    </div>
+</nav>
+<div class="container-fluid ">
+    <div class="row">
+        <div class="p-0 col-2 bg-white text-dark">
+            <div class="nav flex-column nav-pills pt-4" role="tablist" aria-orientation="vertical">
+                <a class="nav-link is active" id="userPanelTable-tab" data-toggle="tab" href="#userPanel"
+                   role="tab" aria-controls="userPanel" aria-selected="false">User</a>
+            </div>
+        </div>
+        <div class="col-10 px-0 bg-light text-dark">
+            <div class="container-fluid">
+                <div class="tab-content">
+                    <!--User panel - begin-->
+                    <div class="tab-pane fade show active" id="userPanel" role="tabpanel" aria-labelledby="userPanelTable-tab">
+                        <h1 class="m-3 font-weight-bold">User information-page</h1>
+                        <div class="card">
+                            <div class="tab-content" id="myTabContent1">
+                                <div class="card-header">
+                                    <div class="m-1">
+                                        <h3>About user</h3>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">First Name</th>
+                                            <th scope="col">Last Name</th>
+                                            <th scope="col">Age</th>
+                                            <th scope="col">Mail</th>
+                                            <th scope="col">Role</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="userLogin">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--User panel - end-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous">
+</script>
+<script type="text/javascript" src="/user.js"></script>
+</body>
+</html>
