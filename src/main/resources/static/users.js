@@ -82,8 +82,9 @@ newUserForm.addEventListener("submit", (e)=>{
             name: values[i]
         })
     }
+    console.log(selectedRoles)
 
-    fetch('http://localhost:8080/api/admin/users', {
+    fetch(url, {
         method:"POST",
         headers: {
             "Content-type": "application/json"
@@ -124,9 +125,6 @@ $(document).on("click", ".edit", function() {
         $('#rolesEditSelect option').prop('selected', true)
     }
 })
-
-
-
 editUserForm.addEventListener("submit", (e)=>{
     e.preventDefault();
 
@@ -138,8 +136,10 @@ editUserForm.addEventListener("submit", (e)=>{
             name: values[i]
         })
     }
+    console.log(selectedRoles)
 
-    fetch('http://localhost:8080/api/admin/users/' + document.getElementById('idEdit').value, {
+    let urlEdit = url + '/' + document.getElementById('idEdit').value
+    fetch(urlEdit, {
         method:"PUT",
         headers: {
             "Content-type": "application/json"
@@ -191,7 +191,8 @@ deleteUserForm.addEventListener("submit", (e)=>{
         })
     }
 
-    fetch('http://localhost:8080/api/admin/users/' + document.getElementById('idDelete').value, {
+    let urlDelete = url + '/' + document.getElementById('idDelete').value
+    fetch(urlDelete, {
         method:"DELETE",
         headers: {
             "Content-type": "application/json"
@@ -208,6 +209,7 @@ deleteUserForm.addEventListener("submit", (e)=>{
         .then(()=>{
             $("#deleteUserModal").modal("hide")
             getAllUsersTable()
+            clearSelectDeleteForm()
         })
 })
 
@@ -237,11 +239,15 @@ $('#editUserModal').on('hidden.bs.modal', function () {
 })
 
 $('#deleteUserModal').on('hidden.bs.modal', function () {
-    clearSelectEditForm()
+    clearSelectDeleteForm()
 })
 
 function clearSelectEditForm() {
     $('#rolesEditSelect option').prop('selected', false);
+}
+
+function clearSelectDeleteForm() {
+    $('#rolesDeleteSelect option').prop('selected', false);
 }
 
 function clearNewForm() {
